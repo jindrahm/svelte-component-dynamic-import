@@ -14,4 +14,4 @@ All three case are demonstrated in the app.
 2. npm install
 3. npm run dev
 4. The app runs on localhost:5000
-5. See the JS console on devtools
+5. See the JS console in devtools
