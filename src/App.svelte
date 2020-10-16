@@ -15,7 +15,7 @@
 
 <h1>Svelte components - dynamic import bug</h1>
 
-<MainCompo name="MainCompo: static import, no slot change">
+<MainCompo name="MainCompo: static import, slot change">
 	<div slot="page-content">
 		{#if loading}
 			Loading...
