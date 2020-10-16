@@ -45,12 +45,12 @@ export default [
 		output: {
 			format: 'esm',
 			name: 'app',
-			file: 'public/main.js'
+			file: 'public/build/main.js'
 		},
 		plugins,
 		watch: {clearScreen: false},
 		onwarn (warning, warn) {
-			if (warning.code === 'UNRESOLVED_IMPORT' && warning.source === 'http://localhost:5000/MainCompo.js') {
+			if (warning.code === 'UNRESOLVED_IMPORT' && warning.source === 'http://localhost:5000/build/MainCompo.js') {
 				return;
 			}
 	
@@ -61,7 +61,7 @@ export default [
 		output: {
 			format: 'esm',
 			name: 'MainCompo',
-			file: 'public/MainCompo.js'
+			file: 'public/build/MainCompo.js'
 		},
 		plugins,
 		watch: {clearScreen: false}

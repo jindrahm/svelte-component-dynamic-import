@@ -2,16 +2,29 @@
 	import {onMount, onDestroy} from 'svelte';
 
 	export let number;
+	export let startTime;
 
-	console.log('ChildCompo ' + number + ': created');
+	function getLogTime() {
+		return new Date(Date.now() - startTime).getSeconds();
+	}
+
+	console.log('ChildCompo ' + number + ': created after ' + getLogTime() + ' seconds');
+
+	if (number == 3) {
+		console.log('ChildCompo ' + number + ': onMount not called => BUG');
+	}
 
 	onMount(() => {
-		console.log('ChildCompo ' + number + ': mounted');
+		console.log('ChildCompo ' + number + ': mounted after ' + getLogTime() + ' seconds');
+
+		if (number == 3) {
+			console.log('ChildCompo ' + number + ': onMount called now right before onDestroy => BUG');
+		}
 	});
 
 	onDestroy(() => {
-		console.log('ChildCompo ' + number + ': destroyed');
+		console.log('ChildCompo ' + number + ': destroyed after ' + getLogTime() + ' seconds');
 	});
 </script>
 
-<h3>Child compo</h3>
+<h3>Child compo {number}</h3>
