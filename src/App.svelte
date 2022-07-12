@@ -6,7 +6,7 @@
 	let loading = true;
 	let MainCompoDynamic;
 
-	const mainCompoDynamicPromise = import('http://localhost:5000/build/MainCompo.js')
+	const mainCompoDynamicPromise = import('http://localhost:12345/build/MainCompo.js')
 		.then(module => MainCompoDynamic = module.default);
 
 	setTimeout(() => loading = false, 3000);

@@ -15,7 +15,7 @@ function serve() {
 	return {
 		writeBundle() {
 			if (server) return;
-			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev', '--port=12345'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
 				shell: true
 			});
@@ -50,7 +50,7 @@ export default [
 		plugins,
 		watch: {clearScreen: false},
 		onwarn (warning, warn) {
-			if (warning.code === 'UNRESOLVED_IMPORT' && warning.source === 'http://localhost:5000/build/MainCompo.js') {
+			if (warning.code === 'UNRESOLVED_IMPORT' && warning.source === 'http://localhost:12345/build/MainCompo.js') {
 				return;
 			}
 	

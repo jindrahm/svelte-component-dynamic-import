@@ -13,5 +13,5 @@ All three case are demonstrated in the app.
 1. Download the repo ZIP and extract
 2. npm install
 3. npm run dev
-4. The app runs on localhost:5000
+4. The app runs on localhost:12345
 5. See the JS console in devtools
