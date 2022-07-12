@@ -26,6 +26,14 @@ function serve() {
 	};
 }
 
+function getModulePath(id) {
+	if (id === 'svelte' || id === 'svelte/internal') {
+		return './svelteInternal.js';
+	}
+
+	return null;
+}
+
 const plugins = [
 	svelte({
 		dev: !production
@@ -42,10 +50,12 @@ const plugins = [
 export default [
 	{
 		input: 'src/main.js',
+		external: id => Boolean(getModulePath(id)),
 		output: {
 			format: 'esm',
 			name: 'app',
-			file: 'public/build/main.js'
+			file: 'public/build/main.js',
+			paths: getModulePath
 		},
 		plugins,
 		watch: {clearScreen: false},
@@ -58,10 +68,21 @@ export default [
 		}
 	}, {
 		input: 'src/MainCompo.svelte',
+		external: id => Boolean(getModulePath(id)),
 		output: {
 			format: 'esm',
 			name: 'MainCompo',
-			file: 'public/build/MainCompo.js'
+			file: 'public/build/MainCompo.js',
+			paths: getModulePath
+		},
+		plugins,
+		watch: {clearScreen: false}
+	}, {
+		input: 'node_modules/svelte/internal/index.mjs',
+		output: {
+			format: 'esm',
+			name: 'svelteInternal',
+			file: 'public/build/svelteInternal.js'
 		},
 		plugins,
 		watch: {clearScreen: false}

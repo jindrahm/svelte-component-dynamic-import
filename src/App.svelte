@@ -32,7 +32,7 @@
 	</div>
 </svelte:component>
 
-<svelte:component this={MainCompoDynamic} name="MainCompo: dynamic import, slot change => BUG">
+<svelte:component this={MainCompoDynamic} name="MainCompo: dynamic import, slot change => NO BUG ANYMORE">
 	<div slot="page-content">
 		{#if loading}
 			Loading...

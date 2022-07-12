@@ -10,16 +10,8 @@
 
 	console.log('ChildCompo ' + number + ': created after ' + getLogTime() + ' seconds');
 
-	if (number == 3) {
-		console.log('ChildCompo ' + number + ': onMount not called => BUG');
-	}
-
 	onMount(() => {
 		console.log('ChildCompo ' + number + ': mounted after ' + getLogTime() + ' seconds');
-
-		if (number == 3) {
-			console.log('ChildCompo ' + number + ': onMount called now right before onDestroy => BUG');
-		}
 	});
 
 	onDestroy(() => {
